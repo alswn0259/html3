@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * { 
+            font-weight: bolder; font-size: 10pt;
+        }
+        div.head {
+            font-weight: bolder; font-size: 15pt;
+            margin-bottom: 50px;
+        }
+        span.head {
+            font-weight: bolder; font-size: 15pt; color: rgb(98, 247, 247);
+        }
+        div {
+            position: relative;
+            top: 50px;
+            left: 10%;
+            margin: 20px;
+        }
+        .astar {
+            color: red;
+        }
+        input {
+            position: sticky;
+            left: 200px;
+        }
+        button {
+            position: sticky;
+            left: 420px;
+            background-color: rgb(20, 212, 180);
+            border-color: rgb(20, 212, 180);
+            color: snow;
+            font-size: 10px;
+            padding: 5px;
+        }
+        .pwd {
+            position: sticky;
+            left: 420px;
+            font-weight: normal; font-size: 10px;
+        }
+        div > input.sex {
+            margin-left: 70px;
+        }
+
+        .bir {
+            margin-left: 42px;
+        }
+        .first {
+            margin-left: 55px;
+        }
+        .phon {
+            margin-left: 40px;
+        }
+        div.p3 > input {
+            padding: 5px;
+            width: 50px;
+        }
+        span.mini {
+            margin-left: 110px;
+            font-weight: normal;
+            font-size: 8pt; 
+        }
+        .yesOrNo {
+            margin-left: -15px;
+        }
+        .b1 {
+            margin-left: 30px;
+        }
+        .b2 {
+            margin-left: 110px;
+        }
+        .b3 {
+            margin-left: 110px;
+        }
+    </style>
+</head>
+<body>
+    <div class="head">
+        회원정보
+    <span class="head">(필수)</span>
+    </div>
+    <div>
+        아이디
+        <span class="astar" >*</span>
+        <input type="text">
+        <button>아이디중복확인</button>
+    </div>
+    <div>
+        비밀번호
+        <span class="astar">*</span>
+        <input type="password">
+        <span class="pwd">8~20자리의 영문, 숫자 조합(영문, 숫자, 특수 기호 조합을 권장합니다)</span>
+    </div>
+    <div>
+        비밀번호확인
+        <span class="astar">*</span>
+        <input type="password">
+    </div>
+    <div>
+        이름
+        <span class="astar">*</span>
+        <input type="password">
+    </div>
+    <div>
+        성별
+        <span class="astar">*</span>
+        <input class="sex" type="radio" name="sex">남성
+        <input class="sex" type="radio" name="sex" checked>여성
+    </div>
+    <div>
+        생년월일
+        <span class="astar">*</span>
+        <select class="bir" name="year" size="1">
+            <option value="1994">1994</option>
+            <option value="1995">1995</option>
+            <option value="1996">1996</option>
+            <option value="1997">1997</option>
+            <option value="1998">1998</option>
+            <option value="1999">1999</option>
+            <option value="2000" selected>2000</option>
+            <option value="2001">2001</option>
+            <option value="2002">2002</option>
+            <option value="2003">2003</option>
+        </select>
+        <select name="month" size="1">
+            <option value="1" selected>01</option>
+            <option value="2">02</option>
+            <option value="3">03</option>
+            <option value="4">04</option>
+            <option value="5">05</option>
+            <option value="6">06</option>
+            <option value="7">07</option>
+            <option value="8">08</option>
+            <option value="9">09</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+        </select>
+        <select name="day" size="1">
+            <option value="" selected>1</option>
+            <option value="">2</option>
+            <option value="">3</option>
+            <option value="">4</option>
+            <option value="">5</option>
+            <option value="">6</option>
+            <option value="">7</option>
+            <option value="">8</option>
+            <option value="">9</option>
+            <option value="">10</option>
+            <option value="">11</option>
+            <option value="">12</option>
+            <option value="">13</option>
+            <option value="">14</option>
+            <option value="">15</option>
+            <option value="">16</option>
+            <option value="">17</option>
+            <option value="">18</option>
+            <option value="">19</option>
+            <option value="">20</option>
+            <option value="">21</option>
+            <option value="">22</option>
+            <option value="">23</option>
+            <option value="">24</option>
+            <option value="">25</option>
+            <option value="">26</option>
+            <option value="">27</option>
+            <option value="">28</option>
+            <option value="">29</option>
+            <option value="">30</option>
+            <option value="">31</option>
+        </select>
+        <input type="radio" name="birth" id="양력">양력
+        <input type="radio" name="birth" id="음력">음력
+    </div>
+    <div>
+        이메일
+        <span class="astar">*</span>
+        <input class="first" type="text">@<input class="two" type="text">
+        <select name="email">
+            <option>naver.com</option>
+            <option>daum.net</option>
+            <option>gmail.com</option>
+        </select>
+    </div>
+    <div class="p3">
+        휴대전화
+        <span class="astar">*</span>
+        <input class="phon" type="text">-<input type="text">-<input type="text"><br>
+        <span class="mini">할인해택과 이벤트 등의 소식 안내를 SMS로 받으실 수 있습니다.<br></span>
+        <span class="mini">수신등의 거부 시에도 기본서비스(주문배송 메일)는 발송됩니다.</span>
+        <input class="yesOrNo" type="radio">예
+        <input class="yesOrNo" type="radio">아니요
+    </div>
+    <div>
+        관심브랜드
+        <span class="astar">*</span>
+        <input class="b1" type="checkbox" name="brand" id="1">한빛미디어
+        <input type="checkbox" name="brand" id="2">한빛아카데미
+        <input type="checkbox" name="brand" id="3">한빛버즈<br><br>
+        <input class="b2" type="checkbox" name="brand" id="4">한빛라이프
+        <input type="checkbox" name="brand" id="5">리얼타임 eBook
+        <input type="checkbox" name="brand" id="6">MAKE<br><br>
+        <input class="b3" type="checkbox" name="brand" id="7">한빛에듀
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>08_table.html</title>
+</head>
+<body>
+    <section>
+        <article>
+            <table border="1">
+                <tr>
+                    <td>이름</td>
+                    <td>홍길동</td>
+                </tr>
+                <tr>
+                    <td>나이</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>취미</td>
+                    <td>독서</td>
+                </tr>
+            </table>
+        </article>
+    </section>
+    <section>
+        <article>
+            <table border="1">
+                <tr>
+                    <!-- th는 진하게 표시 -->
+                    <th>이름</th>
+                    <th>나이</th>
+                    <th>취미</th>
+                </tr>
+                <tr>
+                    <td rowspan="2">홍길동</td>
+                    <td colspan="2">20/독서</td>
+                </tr>
+                <tr>
+                    <!-- <td>김기동</td> -->
+                    <td>21</td>
+                    <td>운동</td>
+                </tr>
+                <tr>
+                    <td>김민주</td>
+                    <td>27</td>
+                    <td>맛집</td>
+                </tr>
+            </table>
+        </article>
+    </section>
+    <section>
+        <article>
+            <table border="2">
+                <caption>test</caption>
+                <tr>
+                    <th rowspan="2">학생</th>
+                    <th>국어</th>
+                    <th>영어</th>
+                </tr>
+                <th colspan="2">평가</th>
+                <tr>
+                    <td rowspan="2">홍길동</td>
+                    <td>80</td>
+                    <td>89</td>
+                </tr>
+                <tr>
+                    <td colspan="2">Good</td>
+                </tr>
+                <tr>
+                    <td rowspan="2">김민수</td>
+                    <td>95</td>
+                    <td>92</td>
+                </tr>
+                <tr>
+                    <td colspan="2">Excellent</td>
+                </tr>
+            </table>
+        </article>
+    </section>
+</body>
+</html>

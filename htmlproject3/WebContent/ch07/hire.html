@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {margin: 0 auto; width: 60%;}
+        h2, h3 {font-weight: bolder;}
+        th { background-color:rgb(222, 232, 248);}
+        td {border: 2px; border-style: solid;  border-color: rgb(222, 232, 248);}
+        td.a {font-weight: bolder; }
+        table {border-spacing: 0px;  width: 100%; }
+        /* div {padding: 5px;} */
+        div > div {  float: left; width: 45% }
+        div > div > table {padding-right: 10px;}
+       input {border-style: none; width: 200px;}
+
+    </style>
+</head>
+<body>
+    <h2>입사지원서</h2>
+    <table>
+        <tr>
+            <th>지원분야</th>
+            <td><input type="text"></td>
+            <th>희망연봉</th>
+            <td><input type="text"></td>
+        </tr>
+        <tr>
+            <th>이름</th>
+            <td><input type="text"></td>
+            <th>생년월일</th>
+            <td><input type="text"></td>
+        </tr>
+        <tr>
+            <th>핸드폰</th>
+            <td><input type="text"></td>
+            <th>이메일</th>
+            <td><input type="text"></td>
+        </tr>
+        <tr>
+            <th>주소</th>
+            <td colspan="3"><input type="text"></td>
+        </tr>
+    </table>
+    <h3>학력사항</h3>
+    <table>
+        <tr>
+            <th>기관</th>
+            <th>학력사항</th>
+            <th>전공</th>
+            <th>학점</th>
+        </tr>
+        <tr>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+        </tr>
+    </table>
+    <h3>주요이력</h3>
+    <table>
+        <tr>
+            <th>기관</th>
+            <th>구분</th>
+            <th>기관및업무내용</th>
+        </tr>
+        <tr>
+            <td rowspan="2"><input type="text"></td>
+            <td class="a">경력사항</td>
+            <td><input type="text"></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="text"></td>
+        </tr>
+        <tr>
+            <td rowspan="2"><input type="text"></td>
+            <td class="a">경력사항</td>
+            <td><input type="text"></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="text"></td>
+        </tr>
+    </table>
+    <h3>참여프로젝트</h3>
+    <table>
+    <tr>
+        <th>프로젝트기간</th>
+        <th>프로젝트명</th>
+    </tr>
+    <tr>
+        <td rowspan="2"><input type="text"></td>
+        <td><input type="text"></td>
+    </tr>
+    <tr>
+        <td><input type="text"></td>
+    </tr>
+    <tr>
+        <td rowspan="2"><input type="text"></td>
+        <td><input type="text"></td>
+    </tr>
+    <tr>
+        <td><input type="text"></td>
+    </tr>
+    </table>
+    <h3>해외연수및해외경험</h3>
+    <table>
+    <tr>
+        <th>기간</th>
+        <th>국가명</th>
+        <th>연수기관(학교)및단체</th>
+        <th>목적</th>
+    </tr>
+    <tr>
+        <td rowspan="2"><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+    </tr>
+    <tr>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+    </tr>
+    <tr>
+        <td rowspan="2"><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+    </tr>
+    <tr>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+    </tr>
+    </table>
+    <div>
+    <div class="mini">
+        <h3>OA능력</h3>
+        <table>
+            <tr>
+                <th>문서작성 (한글/MS-Word)</th>
+                <th>스프레드시트 (Excel)</th>
+            </tr>
+            <tr>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+            </tr>
+                <tr>
+                    <th>프레젠테이션 (PowerPoint)</th>
+                    <th>인터넷 (정보검색/Outlook)</th>
+                </tr>
+                <tr>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                </tr>
+        </table>
+    </div>
+    <div class="mini">
+        <h3>어학능력</h3>
+        <table>
+            <tr>
+                <th>언어</th>
+                <th>회화능력</th>
+            </tr>
+            <tr>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+            </tr>
+                <tr>
+                    <th>학문능력</th>
+                    <th>독해능력</th>
+                </tr>
+                <tr>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>

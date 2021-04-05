@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            width: 500px;
+        }
+    div {
+        border: 1px dotted red;
+    }
+    div.v1 {
+        /* 보이지는 않지만 공간은 할당되있음 */
+        visibility: hidden;
+       
+    }
+    div.v2 {
+        visibility: visible;
+        opacity: 0.7;
+    }
+    div.v3 {
+        /* none 하면 공간조차 없어짐 */
+        /* inline하면 자기 공간만 가질 수 있지만 inline-block하면 넓이 지정 가능 */
+        display: inline-block;
+        width: 700px;
+        opacity: 0.3;
+    }
+    </style>
+</head>
+<body>
+    <div class="v1">
+        <img src="../images/html5.png" alt="">
+    </div>
+    <div class="v2">
+        <img src="../images/html5.png" alt="">
+    </div>
+    <div class="v3">
+        <img src="../images/html5.png" alt="">
+    </div>
+</body>
+</html>

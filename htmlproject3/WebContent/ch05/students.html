@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ch05/students.html</title>
+</head>
+<body id="bdy">
+    <script>
+        let bdy = document.getElementById("bdy");
+       
+        let studentList = [
+            ["이동식", 80],
+            ["한주환", 85],
+            ["오지화", 90]
+        ]
+
+        let tbl = document.createElement("table");
+        tbl.setAttribute("border", "1");
+        bdy.appendChild(tbl);
+        
+        let trTag = document.createElement("tr");
+
+        let tdTag = document.createElement("td");
+        let text = document.createTextNode("이름");
+        tdTag.appendChild(text);
+        trTag.appendChild(tdTag);
+
+        tdTag = document.createElement("td");
+        text = document.createTextNode("점수");
+        tdTag.appendChild(text);
+        trTag.appendChild(tdTag);
+
+        tbl.appendChild(trTag);
+       
+
+       for(let i=0; i<studentList.length; i++) {
+            trTag = document.createElement("tr");
+
+            tdTag = document.createElement("td");
+            text = document.createTextNode(studentList[i][0]);
+            tdTag.appendChild(text);
+            trTag.appendChild(tdTag);
+
+            tdTag = document.createElement("td");
+            text = document.createTextNode(studentList[i][1]);
+            tdTag.appendChild(text);
+            trTag.appendChild(tdTag);
+
+            tbl.appendChild(trTag);
+        }
+
+        trTag = document.createElement("tr");
+        
+            tdTag = document.createElement("td");
+            tdTag.setAttribute("colspan", "2");
+        
+            let arg = 0;
+        for(let i=0; i<studentList.length; i++) {
+            
+            arg = arg + studentList[i][1];
+        }
+
+        text = document.createTextNode("평균점수 : " + arg/studentList.length);
+        tdTag.appendChild(text);
+        trTag.appendChild(tdTag);
+
+        tbl.appendChild(trTag);
+        
+    </script>
+</body>
+</html>

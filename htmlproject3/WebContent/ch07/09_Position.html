@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-weight: bold; font-size: 12pt;
+        }
+        .sp1 {
+            position: static;
+            top: 100px; /* 적용되지 않음 */
+            background-color: cyan; width: 400px; height: 50px;
+        }
+        .sp2 {
+            position: relative;
+            left: 30px; top: -10px;
+            background-color: orange; width: 400px; height: 50px;
+        }
+        .sp3 { background-color: lightgreen; width: 400px; height: 50px;}
+    </style>
+</head>
+<body>
+    <h1>positioning style1</h1>
+    <p class="sp1">위치 설정 적용1</p>
+    <div class="sp2">위치 설정 적용2</div>
+    <p class="sp3">위치 설정 적용3</p>
+</body>
+</html>

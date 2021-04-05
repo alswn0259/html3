@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<ul>fruit
+    <li>Apple</li>
+    <li>Banana</li>
+    <li>Melon</li>
+</ul>
+<br><br><br>
+<ul id="fruit"></ul>
+<script>
+    let  liTag = document.createElement("li"); //태그 만들 때
+    let text = document.createTextNode("Apple") // 텍스트값을 생성
+    liTag.appendChild(text); //<li>Apple</li>
+    let ulTag = document.getElementById("fruit");
+    ulTag.appendChild(liTag);//<ul><li>Apple</li></ul>
+    liTag = document.createElement("li");
+    text = document.createTextNode("Banana");
+    liTag.appendChild(text);
+    ulTag.appendChild(liTag);
+    liTag = document.createElement("li");
+    text = document.createTextNode("Melon");
+    liTag.appendChild(text);
+    ulTag.appendChild(liTag);
+
+   
+</script>
+
+</body>
+</html>

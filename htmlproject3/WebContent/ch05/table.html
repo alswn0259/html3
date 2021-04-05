@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ch05/table.html</title>
+</head>
+<body>
+    <table border="1" id="tbl">
+        <tr>
+            <td>아이디:</td>
+            <td><input type="text" name="name" value="홍길동"></td>
+        </tr>
+        <tr>
+            <td>비밀번호:</td>
+            <td><input type="password" name="passwd"></td>
+        </tr>
+        <tr>
+            <td><button>전송</button></td>
+            <td><button>취소</button></td>
+        </tr>
+    </table>
+    <br><br><br>
+    <form>
+    <table id="logIn" border="1"></table>
+    </form>
+    <script>
+        let tbl = document.getElementById("logIn");
+
+        //1번재 tr만들기
+        let trTag = document.createElement("tr");
+
+        let tdTag = document.createElement("td");
+        let text = document.createTextNode("이름:");
+        tdTag.appendChild(text);
+        trTag.appendChild(tdTag);
+    
+        tdTag = document.createElement("td");
+        let inputTag = document.createElement("input");
+        inputTag.setAttribute("type", "text");
+        tdTag.appendChild(inputTag);
+        trTag.appendChild(tdTag);
+
+        tbl.appendChild(trTag);
+
+        //2번째 tr만들기
+        trTag = document.createElement("tr");
+
+        tdTag = document.createElement("td");
+        text = document.createTextNode("비밀번호:");
+        tdTag.appendChild(text);
+        trTag.appendChild(tdTag);
+
+        tdTag = document.createElement("td");
+        inputTag = document.createElement("input");
+        inputTag.setAttribute("type", "password");
+        tdTag.appendChild(inputTag);
+        trTag.appendChild(tdTag);
+
+        tbl.appendChild(trTag);
+
+        //3번째 tr만들기
+        trTag = document.createElement("tr");
+
+        trTag.setAttribute("align","center");
+        tdTag = document.createElement("td");
+        tdTag.setAttribute("colspan","2");
+        inputTag = document.createElement("input");
+        inputTag.setAttribute("type", "submit");
+        tdTag.appendChild(inputTag);
+        trTag.appendChild(tdTag);
+
+        inputTag = document.createElement("input");
+        inputTag.setAttribute("type","reset");
+        tdTag.appendChild(inputTag);
+        trTag.appendChild(tdTag);
+
+        tbl.appendChild(trTag);
+
+        //3번째 tr만들기
+        // trTag = document.createElement("tr");
+        // tdTag = document.createElement("td");
+        // inputTag = document.createElement("input");
+        // inputTag.setAttribute("type", "submit");
+        // tdTag.appendChild(inputTag);
+        // trTag.appendChild(tdTag);
+
+
+
+        
+
+        // let inputTag = document.createElement("input");
+        // inputTag.setAttribute("type","password");
+        // inputTag.setAttribute("name","passwd");
+        
+    </script>
+</body>
+</html>

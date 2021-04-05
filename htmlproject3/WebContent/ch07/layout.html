@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+           
+            text-align: center;
+            /* box비율에 맞게 왼 중간 오 배치 */
+            box-sizing: border-box;
+            border-radius: 3px;
+        }
+        header.container {
+            border: 1px solid gainsboro;
+            background-color: cornsilk;
+            height: 10vh;
+            
+        }
+        nav, section, 
+        aside {
+            border: 1px solid gainsboro;
+            background-color: rgba(162, 228, 64, 0.445);
+            margin: 1% 1%;
+        }
+        nav {
+            border: 1px solid gainsboro;
+            width: 23%;
+            float: left;
+            height: 50vh;
+        }
+        section {
+            padding-top: 5px;
+            border: 1px solid gainsboro;
+            width: 48%;
+            float: left;
+            height: 50vh;
+            
+        }
+        section > header {
+            border: 1px solid gainsboro;
+            margin-top: 10%;
+            padding-top: 17px;
+            background-color: rgba(59, 216, 20, 0.534);
+            height: 15%;
+            margin: 5%;
+        }
+        section > article {
+            border: 1px solid gainsboro;
+            padding-top: 70px;
+            margin-top: 5%;
+            background-color: rgba(59, 216, 20, 0.534);
+            height: 45%;
+            margin: 5%;
+
+        }
+        section > footer {
+            border: 1px solid gainsboro;
+            margin-top: 5%;
+            padding-top: 17px;
+            background-color: rgba(59, 216, 20, 0.534);
+            height: 15%;
+            margin: 5%;
+        }
+        aside {
+            border: 1px solid gainsboro;
+            width: 23%;
+            float: left;
+            height: 50vh;
+        }
+        footer.container {
+            border: 1px solid gainsboro;
+            background-color: rgba(255, 198, 65, 0.664);
+            height: 10vh;
+            float: left;
+            width: 98%;
+            margin: 1%;
+        }
+        ul {
+            border-width: 0;
+        }
+        ul > li {
+            display: inline;
+            border-width: 0;
+        }
+        ul > li > a {
+            border-width: 0;
+        }
+    </style>
+</head>
+<body>
+    <header class='container'>
+        <ul>
+            <li><a href="">주제1</li>
+            <li><a href="">주제2</li>
+            <li><a href="">주제3</li>
+        </ul>
+    </header>    
+    <nav>
+        <ol>
+            <li>menu1</li>
+            <li>menu2</li>
+            <li>menu3</li>
+            <li>menu4</li>
+            <li>menu5</li>
+        </ol>
+    </nav>
+    <section>
+        &lt;section&gt;
+        <header class="item">
+            &lt;header&gt;
+        </header>
+        <article>
+            &lt;article&gt;
+        </article>
+        <footer class="item">
+            &lt;footer&gt;
+        </footer>
+    </section>
+    <aside>
+        &lt;aside&gt;
+    </aside>
+    <footer class="container">
+        &lt;footer&gt;
+    </footer>
+</body>
+</html>
