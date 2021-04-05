@@ -49,6 +49,13 @@ for(var i = 1; i < 10; i++) {
 }
 document.write('</table>');
 
-var n1 = window.prompt('첫번째 값: ');
-var n2 = window.prompt('두번째 값: ');
-console.log(parseInt(n1) + parseInt(n2) + '을 입력....')
+// var n1 = window.prompt('첫번째 값: ');
+// var n2 = window.prompt('두번째 값: ');
+// console.log(parseInt(n1) + parseInt(n2) + '을 입력....');
+
+var num = window.prompt('구구단 몇단?');
+for(var i=1; i<10; i++) {
+    document.write('<tr><td>' +  num + ' * ' + i + '</td><td class = "equals"> = </td><td>' + num*i + '</td><br></tr>');
+}
+
+

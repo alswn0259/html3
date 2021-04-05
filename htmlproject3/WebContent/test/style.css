@@ -1,0 +1,25 @@
+.header {
+
+    background-color:red;
+    height: 100px;
+}
+
+.nav {
+    float: left;
+    width: 50%;
+    background-color: sandybrown;
+    color: white;
+    height: 100px;
+}
+
+.content {
+    float: right;
+    width: 50%;
+    background-color: yellow;
+    height: 100px;
+}
+
+.footer {
+    background-color: green;
+    color: white;
+}
