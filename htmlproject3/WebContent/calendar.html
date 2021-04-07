@@ -7,14 +7,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>calendar.html</title>
     <script src="cal.js"></script>
+    <style>
+        td:nth-of-type(1), th:nth-of-type(1) {
+            background-color: red;
+        }
+        td:nth-of-type(7), th:nth-of-type(7) {
+            background-color: blue;
+        }
+    </style>
 
 </head>
 
 <body>
     <script>
-        // createCalendar(2021,1);
-        // createCalendar(2021,2);
-        createCalendar(2021, 3);
+        createCalendar(2021,2);
+        createCalendar(2021,3);
         
 
         // createCal();
@@ -49,10 +56,10 @@
                 if ((firstDay + i) % 7 == 0) {
                     calendarTag += '<td style="background-color: blue";>' + i + '</td>';
                     calendarTag += '</tr><tr>';
-                } else if (i % 7 == 0) {
-                    calendarTag += '<td style="background-color: red";>' + i + '</td>';
-                } else if (i == thisDate) {
-                    calendarTag += '<td style="background-color: yellow";>' + i + '</td>';
+                // } else if (i % 7 == 0) {
+                //     calendarTag += '<td style="background-color: red";>' + i + '</td>';
+                // } else if (i == thisDate) {
+                //     calendarTag += '<td style="background-color: yellow";>' + i + '</td>';
                 } else {
                     calendarTag += '<td>' + i + '</td>';
                 }
@@ -61,6 +68,8 @@
             calendarTag += '</table>';
             document.write(calendarTag);
         }
+
+        console.log(this);
     </script>
 
 </body>
