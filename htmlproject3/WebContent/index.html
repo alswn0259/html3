@@ -16,31 +16,78 @@
         height: 50px;
         background-color: yellow;
     } */ 
+
 </style>
 </head>
 <body id="bdy">
     <div id='show'></div>
     <ul id="list"></ul>
     <ul id="members"></ul>
+    <table id="tb" border="1"></table>
     <!-- <script src="javascript/object.js"></script>
         <script src="javascript/class.js"> -->
 
-    <button onclick="changeColor()">색변경하기</button>
+    <!-- <button onclick="changeColor()">색변경하기</button> -->
     <script>
-        let colors = ['yellow', 'red', 'blue', 'aqua'];
-        let i = 0;
+        let json = [{
+            id:1,
+            first_name:"Beulah",
+            last_name:"Britee",
+            email:"bbritee0@amazonaws.com",
+            gender:"Male",
+            ip_address:"35.154.246.112"
+        }, {
+            id:2,
+            first_name:"Chloette",
+            last_name:"Ferenczi",
+            email:"cferenczi1@printfriendly.com",
+            gender:"Female",
+            ip_address:"214.96.74.88"
+        }, {
+            id:3,
+            first_name:"Ginni",
+            last_name:"Gabey",
+            email:"ggabey2@weebly.com",
+            gender:"Female",
+            ip_address:"150.22.138.195"
+        }, {
+            id:4,
+            first_name:"Grace",
+            last_name:"Jaulme",
+            email:"gjaulme3@zdnet.com",
+            gender:"Male",
+            ip_address:"52.69.205.163"
+        }, {
+            id:5,
+            first_name:"Jose",
+            last_name:"Gainseford",
+            email:"jgainseford4@forbes.com",
+            gender:"Genderqueer",
+            ip_address:"118.17.1.232"
+        }];
 
-       function changeColor() {
-            let bdy = document.getElementsByTagName('body'); //여러건중에 하나라 인덱스번호 붙음
-            // bdy = document.getElementsByTagName('bdy');
-            
-            // console.log(bdy[0]);
-            // bdy[0].style.backgroundColor = 'yellow';
+        console.log(json);
 
-            console.log(bdy);
-            bdy[0].style.backgroundColor = colors[i % 4];
-            i++;
-       }
+        //id, first_name, last_name, email, gendar
+        // let tb = document.createElement('table');
+        // tb.setAttribute('border',1);
+
+        for(let i=0; i<json.length; i++) {
+        let trTag = document.createElement('tr');
+        
+        for(field of json) {
+        let tdTag = document.createElement('td');
+        let text = document.createTextNode(json[field]);
+        tdTag.appendChild(text);
+        trTag.appendChild(tdTag);
+        }
+
+        tb.appendChild(trTag);
+        }
+
+        
+
+
     </script>
     
 </body>
