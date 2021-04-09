@@ -1,35 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="EUC-KR">
-<title></title>
-<!-- <script src="javascript/basic.js"></script>
-<script src="javascript/variable.js"></script>
-<script src="javascript/operator.js"></script>
-<script src="javascript/object2.js"></script>
-<script src="javascript/array.js"> -->
-
-<style>
-    /* div {
-        /* float: left; */
-        /* width: 50px;
-        height: 50px;
-        background-color: yellow;
-    } */ 
-
-</style>
-</head>
-<body id="bdy">
-    <div id='show'></div>
-    <ul id="list"></ul>
-    <ul id="members"></ul>
-    <!-- <table id="tb" border="1"></table> -->
-    <!-- <script src="javascript/object.js"></script>
-        <script src="javascript/class.js"> -->
-
-    <!-- <button onclick="changeColor()">색변경하기</button> -->
-    <script>
-        let json = [{
+let json = [{
             id:1,
             first_name:"Beulah",
             last_name:"Britee",
@@ -109,7 +78,8 @@
 
         
         chkbox = document.createElement('input');
-        chkbox.setAttribute('type','checkbox');
+        chkbox.setAttribute('type','checkbox')
+        chkbox.onchange = allCheck;
         let tdTag = document.createElement('td');
         tdTag.appendChild(chkbox);
         trTag.appendChild(tdTag);
@@ -147,14 +117,9 @@
         
         //선택지우기
         function delSelected() {
-            let checkedAll = document.querySelectorAll('td>input[type="checkbox"]:checked'); //checkbox중에서 체크된거 가지고오겠다
+            let checkedAll = document.querySelectorAll('td>input[type="checkbox":checked]'); //checkbox중에서 체크된거 가지고오겠다
             console.log(checkedAll);
             for (let i=0; i<checkedAll.length; i++) {
                 checkedAll[i].parentNode.parentNode.remove();
             }
         }
-
-    </script>
-    
-</body>
-</html>
