@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery-3.6.0.min.js"></script>
+    <script>
+        window.onload = function() {
+
+        }
+
+        // $(document).ready(anonyFnc);
+        // function anonyFnc() {
+        //     $('h2').css('background-color','red');
+        // } 
+
+        $(document).ready(function() {
+            $('h2').eq(0).css('background-color','red');
+            $('#select').css('color','blue');
+            $('div>h1').css('background-color','green');
+            $('div').children().eq(1).css('color','aqua');
+
+            $('#select').parent().css('font-size', '30px');
+            // $('#select').parent().css('background-color', 'gray');
+        });
+    </script>
+</head>
+<body>
+    <h1>제이쿼리</h1>
+    <h2>선택자</h2>
+    <h3>직접선택자</h3>
+
+    <div>
+        <h1>제이쿼리</h1>
+        <h2>선택자</h2>
+        <h3 id="select">직접선택자</h3>
+    </div>
+    <script>
+        let h1Tag = document.getElementsByTagName('h1');
+        h1Tag[0].style.backgroundColor = 'yellow';
+
+        
+    </script>
+</body>
+</html>

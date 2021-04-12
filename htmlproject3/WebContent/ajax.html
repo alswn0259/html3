@@ -7,6 +7,37 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <p id="showCD"></p>
+    <table id="tbl" border="1"></table>
+    <script>
+        let xhtp = new XMLHttpRequest();
+        let table;
+        let rows;
+        console.log('1');
+        xhtp.onreadystatechange = function() {
+            if(xhtp.readyState == 4 && xhtp.status == 200) {
+                console.log('2');
+                let doc = xhtp.responseXML;
+                rows = doc.getElementsByTagName('CD');
+                table = '<tr><th>ARtis</th><th>Title</th></tr>';
+                for(let i=0; i<rows.length; i++) {
+                    table += '<tr onclick=displayCD('+i+')><td>' + rows[i].getElementsByTagName('ARTIST')[0].innerHTML +
+                         '</td><td>' + rows[i].getElementsByTagName('TITLE')[0].innerHTML +'</td></tr>';
+                }
+                document.getElementById('tbl').innerHTML = table;
+            }
+        }
+        xhtp.open('get','cd_catalog.xml', false); //마지막은 동기 or 비동기
+        xhtp.send();
+        console.log('3');
+
+        function displayCD(i) {
+            let row = 
+            'Artist: ' + rows[i].getElementsByTagName('ARTIST')[0].innerHTML + '<br>' +
+            'Title: ' + rows[i].getElementsByTagName('TITLE')[0].innerHTML + '<br>' +
+            'Year: ' + rows[i].getElementsByTagName('YEAR')[0].innerHTML;
+            document.getElementById('showCD').innerHTML = row;
+        }
+    </script>
 </body>
 </html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--방법1 다운 받아서 하는 방법
+        <script src="./jquery-3.6.0.min.js"></script> -->
+    <!-- 방법2 항상 인터넷 연결되있어야함 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        //자바스크립트로 할때 방법
+        // window.onload = function() { //window라는 최상위객체(load 로딩이 다되면 값 뿌려줌)
+        //     document.getElementById('show').innerHTML = 'Hello';
+        // }
+
+        //제이쿼리 방법
+        $(document).ready(function () { //document가 준비가 되면...
+            $('#show').html('Hello'); //id값이 show인거에다가 html속성에 Hello 넣어주세요
+            // $('<td />').attr('id', 'first'); //document.createElement('td')랑 같은 의미
+            let tbl = $('<table border="1" />').attr('id', 'tbl');
+            let tr = $('<tr />').append(
+                $('<td />').html('name'),
+                $('<td />').html('id'));
+            tbl.append(tr);
+            console.log(tbl);
+            $('body').eq(0).append(tbl);
+
+        });
+    </script>
+</head>
+<body>
+    <p id="show"></p>
+    <script>
+        
+    </script>
+</body>
+</html>
