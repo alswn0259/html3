@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    let json = [{
+        id:1,
+        first_name:"Beulah",
+        last_name:"Britee",
+        email:"bbritee0@amazonaws.com",
+        gender:"Male",
+        ip_address:"35.154.246.112"
+    }, {
+        id:2,
+        first_name:"Chloette",
+        last_name:"Ferenczi",
+        email:"cferenczi1@printfriendly.com",
+        gender:"Female",
+        ip_address:"214.96.74.88"
+    }, {
+        id:3,
+        first_name:"Ginni",
+        last_name:"Gabey",
+        email:"ggabey2@weebly.com",
+        gender:"Female",
+        ip_address:"150.22.138.195"
+    }, {
+        id:4,
+        first_name:"Grace",
+        last_name:"Jaulme",
+        email:"gjaulme3@zdnet.com",
+        gender:"Male",
+        ip_address:"52.69.205.163"
+    }, {
+        id:5,
+        first_name:"Jose",
+        last_name:"Gainseford",
+        email:"jgainseford4@forbes.com",
+        gender:"Genderqueer",
+        ip_address:"118.17.1.232"
+    }];
+    console.log(json);
+
+    let bdy = document.getElementsByTagName('body');
+    let tbl = document.createElement('table');
+    tbl.setAttribute('border',1);
+    bdy[0].appendChild(tbl);
+
+    let trTag, thTag, tdTag, text, chk, btn;
+
+    let titles = ['id', 'first_name', 'last_name', 'email', 'gender', 'ip_address'];
+
+    trTag = document.createElement('tr');
+    
+    thTag = document.createElement('th');
+    chk = document.createElement('input');
+    chk.setAttribute('type', 'checkbox');
+    chk.onchange = allCheck;
+    thTag.appendChild(chk);
+    trTag.appendChild(thTag);
+
+    for (title of titles) {
+        thTag = document.createElement('th');
+        text = document.createTextNode(title);
+        thTag.appendChild(text);
+        trTag.appendChild(thTag);
+    }
+
+    thTag = document.createElement('th');
+    btn = document.createElement('input');
+    btn.setAttribute('type','button');
+    btn.setAttribute('value','selectedDel');
+    btn.onclick = delSelected;
+    thTag.appendChild(btn);
+    trTag.appendChild(thTag);
+
+    tbl.appendChild(trTag);
+
+    for (data of json) {
+        trTag = document.createElement('tr');
+
+        tdTag = document.createElement('td');
+        chk = document.createElement('input');
+        chk.setAttribute('type', 'checkbox');
+        chk.onchange = allselect;
+        tdTag.appendChild(chk);
+        trTag.appendChild(tdTag);
+        
+        for (field in data) {
+        tdTag = document.createElement('td');
+        text = document.createTextNode(data[field]);
+        tdTag.appendChild(text);
+        trTag.appendChild(tdTag);
+        }
+
+        tdTag = document.createElement('td');
+        btn = document.createElement('input');
+        btn.setAttribute('type','button');
+        btn.setAttribute('value','del');
+        btn.onclick = delFunc;
+        tdTag.appendChild(btn);
+        trTag.appendChild(tdTag);   
+
+        tbl.appendChild(trTag);
+    }
+    
+    //한건 지우기
+    function delFunc() {
+        this.parentNode.parentNode.remove(); 
+    }
+
+    //전체선택
+    function allCheck() {
+        let tChk = document.querySelector('th>input[type="checkbox"]');
+        let checks = document.querySelectorAll('td>input[type="checkbox"]');
+        for(let i=0; i<checks.length; i++) {
+            checks[i].checked = tChk.checked;
+        }
+
+    }
+
+    //선택지우기
+    function delSelected() {
+        let checkedAll = document.querySelectorAll('td>input[type="checkbox"]:checked');
+        for (let i=0; i<checkedAll.length; i++) {
+            checkedAll[i].parentNode.parentNode.remove();
+        }
+     }
+
+     function allselect() {
+            // 전체 체크박스
+            const checkboxes
+                = document.querySelectorAll('td>input[type="checkbox"]');
+            // 선택된 체크박스
+            const checked
+                = document.querySelectorAll('td>input[type="checkbox"]:checked');
+            // select all 체크박스
+            const selectAll
+                = document.querySelector('th>input[type="checkbox"]');
+
+            if (checkboxes.length === checked.length) {
+                selectAll.checked = true;
+            } else {
+                selectAll.checked = false;
+            }
+        }
+    </script>   
+</body>
+</html>

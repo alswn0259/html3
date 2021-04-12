@@ -70,10 +70,12 @@
         }
 
         let firstVal = 0,
-            lastVal = 0,
-            oper = null;
+             lastVal = 0,
+             oper = null;
 
         let touchVal = 0;
+        
+
 
         function clickEvent() {
             touchVal = this.innerHTML;
@@ -88,34 +90,21 @@
                     oper = touchVal;
                 } else {
                     //처리결과
-                    display.innerHTML = cal(lastVal, oper);
+                    display.innerHTML = cal(firstVal, lastVal, oper);
                     return; //종료
                 }
             } else {
-                // if(!oper) {//firstVal 
-                //     firstVal += touchVal;
-                // } else {//lastVal
+                if(!oper) {//firstVal 
+                    firstVal += touchVal;
+                } else {//lastVal
                     lastVal += touchVal;
-                // }
-            }
-            let lva = [];
-            let ope = [];
-            lva.push(lastVal);
-            ope.push(oper);
-
-            for(l of lva) {
-                for(o of ope) {
-                    display.innerHTML = parseInt(l);
-                    display.innerHTML += parseInt(o);
-                    break;
-                    } 
                 }
-            
-            // display.innerHTML = parseInt(firstVal) + oper + parseInt(lastVal);
+            }
+            display.innerHTML = parseInt(firstVal) + oper + parseInt(lastVal);
             }
 
         function clarFunc() {
-            // firstVal = 0;
+            firstVal = 0;
             lastVal = 0;
             oper = null;
 
@@ -123,21 +112,22 @@
         }
 
         
-        function cal(lv, op) {
-            // let fi = parseInt(fv);
+        function cal(fv, lv, op) {
+            let fi = parseInt(fv);
             let li = parseInt(lv);
             let result = 0;
-
+            
+            
             if(op == '+') {
-                result = result +  li;
+                result = fi + li;
             } else if(op == '-') {
-                result = result - li;
+                result = fi - li;
             } else if(op == '*') {
-                result = result * li;
+                result = fi * li;
             } else if(op == '/') {
-                result = result / li;
+                result = fi / li;
             } else if(op == '%') {
-                result = result % li;
+                result = fi % li;
             }
             return result;
         }
