@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        //map
+        $.ajax({
+            url: '../MOCK_DATA.json',
+            success: function(result) {
+                let objs = $(result).map(function(idx, obj) {
+                    //object 새로 만들어서 출력 할수도 있음.  
+                    let person = {};
+                    person.name = obj.first_name;
+                    person.email = obj.email;
+                    return person;
+                    // return obj.first_name;
+                }).filter(function(idx, obj) {
+                    return idx < 5;
+                });
+                //따로 빼서 써도됨.
+                // let objf = $(objs).filter(function(idx, obj) {
+                //     return idx < 5;
+                // })
+                console.log(objs);
+                // console.log(objf);
+
+                let tbl = $('<table />');
+                tbl.attr('border','1');
+                $(objs).each(function(idx, obj) {
+                    let trTag = $('<tr />');
+                    // trTag.mouseover(function() {
+                    //     $(this).css('background-color','yellow');
+                    // });
+                    // trTag.mouseout(function() {
+                    //     $(this).css('background-color','');
+                    // });
+                    trTag.on({
+                        'mouseover': function() {
+                            $(this).css('background-color','yellow');
+                        },
+                        'mouseout': function() {
+                            $(this).css('background-color','');
+                        },
+                        'click': function() {
+                            console.log($(this).children().eq(0).html());
+                        } //{이벤트이름: 핸들러}
+                    });
+                    let tdTag = $('<td />');
+                    let ips = $('<input />').attr('type', 'checkbox');
+                    trTag.append(tdTag.append(ips));
+                    for(field in obj) {
+                        let tdTag = $('<td />').html(obj[field]);
+                        trTag.append(tdTag);
+                    }
+                    tbl.append(trTag);
+                });
+                $('body').append(tbl);
+
+                $('body').append($('<button />').html('삭제').click(delChecked));
+            }
+        });
+        function delChecked() {
+        //     console.log($(this));
+        //     $('td>input[type="checkbox"]:checked')
+        //             .parentsUntil('table')
+        //             // .css('color','red')
+        //             .remove();
+
+            $('td>input[type="checkbox"]')
+                .is(':checked') //is는 상태를 나타냄. checked, selected등
+                .parentsUntil('table')
+                .css('color','red');
+        }
+    </script>
+</head>
+<body>
+    <button id="btn">클릭</button>
+    <button id="bton">Click</button>
+    <button id="btnOn">클릭</button>
+    <button id="buttonOn">Click</button>
+    <script>
+        //jQuery
+        $('#btnOn').click(function() {
+            console.log('클릭되었습니다');
+        });
+        $('#btnOn').mouseover(function() {
+            $(this).css('background-color','yellow');
+        });
+        $('#btnOn').mouseout(function() {
+            $(this).css('background-color','');
+        });
+
+        $('#buttonOn').on('click', function() {
+            console.log('클릭되었습니다');
+        });
+        $('#buttonOn').on({
+            'mouseover': function() {
+                $(this).css('background-color','yellow');
+            },
+            'mouseout':function() {
+                $(this).css('background-color','');
+            }
+        });
+
+        //자바스크립트에서는 이렇게..
+        let btn = document.getElementById('btn');
+        btn.onclick = function() {
+            alert('클릭버튼을 눌렀습니다!');
+        }
+        btn.onmouseover = function() {
+            this.style.backgroundColor = 'yellow';
+        }
+        btn.onmouseout = function() {
+            this.style.backgroundColor = '';
+        }
+
+        let bton = document.getElementById('bton');
+        bton.addEventListener('click', function() { //'click'이라는 이벤트 발생하면 function 실행
+            alert('클릭버튼을 눌렀습니다!');
+        }) 
+        bton.addEventListener('mouseover', function() {
+            this.style.backgroundColor = 'yellow';
+        })
+        bton.addEventListener('mouseout', function() {
+            this.style.backgroundColor = '';
+        })
+    </script>
+</body>
+</html>
