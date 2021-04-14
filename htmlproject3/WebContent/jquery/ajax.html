@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script>
+		$(document).ready(function () {
+			//리스트 보여주기
+			$.ajax({
+				url: 'ajaxList.jsp',
+				dataType: 'json',
+				success: function (result) {
+					console.log(result);
+					//테이블에 표로 데이터 보여주도록..
+					let tbl = $('<table border="1" />');
+					for(let i=0; i<result.length; i++) {
+					let trTag = $('<tr />');
+						for(field in result[i]) {
+
+							let tdTag = $('<td />').html(result[i][field]);
+							trTag.append(tdTag);
+						}
+						tbl.append(trTag);
+					}
+					$('#show').append(tbl);
+				},
+				error: function(reject) {
+					console.error(reject);
+				}
+			});
+			
+			$('#frm').submit(function (event) {
+
+				event.preventDefault();
+				console.log($('#frm').serialize());
+				$.ajax({
+					url: $('#frm').attr('action'), //action 속성값 읽어오겠다.
+					/*	data: {boardNo: $('input[name="boardNo"]').val(), 
+							title: $('input[name="title"]').val(), 
+							content: $('textarea[name="content"]').val(), 
+							writer: $('input[name="writer"]').val()
+							}, */
+					data: $('#frm').serialize(),
+					success: function (data) {
+						let result = JSON.parse(data); // JSON => Object
+						console.log(result);
+
+						$('input[name="boardNo"]').val('');
+						$('input[name="title"]').val('');
+						$('textarea[name="content"]').val('');
+						$('input[name="writer"]').val('');
+					}
+				});
+			});
+		});
+	</script>
+</head>
+
+<body>
+	<form action="ajax.jsp" id="frm" method="get">
+		<div>게시글번호: <input type="text" name="boardNo"></div>
+		<div>제목: <input type="text" name="title"></div>
+		<div>내용: <textarea name="content" cols="30" rows="10">
+			</textarea></div>
+		<div>작성자: <input type="text" name="writer"></div>
+		<div><input type="submit" value="Send">
+			<input type="reset" value="Cancel"></div>
+	</form>
+
+	<div id="show"></div>
+</body>
+
+</html>
