@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+	$.ajax({
+		url: '../MOCK_DATA.json',
+		//datatype: 'json', 없어도됨 map해줘서 each 하니깐
+		success: function(data) {
+		let objs = $(data).map(function(idx, obj) {
+			let person = {};
+			person.fname = obj.first_name;
+			person.lname = obj.last_name;
+			person.email = obj.email;
+			person.gender = obj.gender;
+			person.ip = obj.ip_address;
+			return person;
+		});
+		console.log(objs);
+		
+		let tbl = $('<table border="1"/>');
+		
+		let titles = {
+				idx : 'Check',
+				name1 : 'FistName',
+				name2 : 'LastName', 
+				e : 'Email',
+				gender : 'Gender',
+				ip : 'IP'};
+		let trTag = $('<tr />'); 
+		for(title in titles) {
+			let thTag = $('<th />').html(titles[title]);
+			trTag.append(thTag);
+		}
+		tbl.append(trTag);
+		
+		$(objs).each(function(idx,obj) {
+			trTag = $('<tr />');
+			let tdTag = $('<td />');
+			let ips = $('<input />').attr('type','checkbox');
+			trTag.append(tdTag.append(ips));
+			
+			for(field in obj) {
+				tdTag = $('<td />').html(obj[field]);
+				trTag.append(tdTag);
+			}
+			
+			tbl.append(trTag);
+		});
+		$('body').append(tbl);
+		$('body').append($('<button />').html('삭제').click(delChecked));
+		}
+	});
+	
+	function delChecked() {
+		$('td>input[type="checkbox"]:checked')
+			//.is(':checked') 집에서는 적용안되... ㅜ
+			.parentsUntil('table')
+			.remove();
+	}
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>
