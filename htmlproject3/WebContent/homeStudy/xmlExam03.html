@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let xhtp = new XMLHttpRequest();
+        xhtp.onreadystatechange = function() {
+            if(xhtp.readyState == 4 && xhtp.status == 200) {
+                let data = xhtp.responseXML;
+                let rec = data.getElementsByTagName('record');
+                let list = '<h2>Employee List</h2>';
+                for(let i=0; i<rec.length; i++) {
+                    list +='<ul><li>' + rec[i].getElementsByTagName('emp_id')[0].innerHTML
+                            +'</li><li>' + rec[i].getElementsByTagName('first_name')[0].innerHTML
+                            +'</li><li>' + rec[i].getElementsByTagName('phone_number')[0].innerHTML
+                            +'</li></ul>';
+                }
+                document.getElementsByTagName('body')[0].innerHTML = list;
+            }
+        }
+        xhtp.open('get','employees.xml',false);
+        xhtp.send();
+
+    </script>
+</body>
+</html>
