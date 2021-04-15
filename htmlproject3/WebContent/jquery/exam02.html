@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $.ajax({
+            url: 'members.json',
+            dataType: 'json',
+            success: function(data) {
+                console.log(data);
+                let tbl = $('<table border="1"/>');
+                let titles = {
+                    mem_id : 'ID',
+                    first_name : 'FirstName',
+                    last_name : 'LastName',
+                    email : 'Email',
+                    gender : 'Gender',
+                    adress : 'Adress'
+                };
+
+                let trTag = $('<tr />');
+                for(title in titles) {
+                let thTag = $('<th />').html(titles[title]);
+                trTag.append(thTag);
+                }
+                tbl.append(trTag);
+
+                for(json of data) {
+                    trTag = $('<tr />');
+                    for(field in json) {
+                        let tdTag = $('<td />').html(json[field]);
+                        trTag.append(tdTag);
+                    }
+                    tbl.append(trTag);
+                }
+                $('body').append(tbl);
+            }
+        })
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

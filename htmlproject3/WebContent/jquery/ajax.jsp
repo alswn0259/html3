@@ -17,15 +17,19 @@
 	board.setTitle(til);
 	board.setContent(cnt);
 	board.setWriter(wrt);
-	dao.insertBoard(board);
+	
+	Board retVal = new Board();
+	retVal = dao.insertBoardResult(board);
+
 	
 	
 	
 	//{"name":"Hong", "age":10} 제이슨 타입
-	String result = "{\"boardNo\":\""+bno+"\","
-		+"\"title\":\""+til+"\","
-		+"\"content\":\""+cnt+"\","
-		+"\"writer\":\""+wrt+"\"}";
+	String result = "{\"boardNo\":\""+retVal.getBoardNo()+"\","
+		+"\"title\":\""+retVal.getTitle()+"\","
+		+"\"content\":\""+retVal.getContent()+"\","
+		+"\"writer\":\""+retVal.getWriter()+"\","
+		+"\"creationDate\":\""+retVal.getCreationDate() +"\"}";
 	out.print(result);
 	//{"boardNo":"1","title":"test","content":"test","writer":"user1"}
 %>

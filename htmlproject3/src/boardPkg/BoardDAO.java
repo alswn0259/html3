@@ -111,6 +111,35 @@ public class BoardDAO {
 			close();
 		}
 	}
+	//입력 후 결과 반환
+	public Board insertBoardResult(Board board) { // 5개의 변수 다 매개변수로 하는거보다 Board 클래스 쓰는게 나음
+		conn = DBCon.getConnection();
+		sql = "insert into board values(" + board.getBoardNo() + ", '" + board.getTitle() + "'" + ", '"
+				+ board.getContent() + "'" + ", '" + board.getWriter() + "'" + ", sysdate" + ")";
+		
+		String sql1 = "select * from board where board_no = " + board.getBoardNo();
+		Board retunVal = new Board();
+		try {
+			stmt = conn.createStatement();
+			int r = stmt.executeUpdate(sql);
+			System.out.println( r + "건 입력되었습니다.");
+			
+			rs = stmt.executeQuery(sql1);
+			if(rs.next()) {
+				retunVal.setBoardNo(rs.getInt("board_no"));
+				retunVal.setContent(rs.getString("content"));
+				retunVal.setCreationDate(rs.getString("creation_date"));
+				retunVal.setTitle(rs.getString("title"));
+				retunVal.setWriter(rs.getString("writer"));
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return retunVal;
+	}
 
 	// 수정
 	public void updateBoard(Board board) {
@@ -140,11 +169,42 @@ public class BoardDAO {
 			int r = stmt.executeUpdate(sql);
 			System.out.println( r + "건 삭제되었습니다.");
 			
+			
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			close();
 		}
+	}
+	
+	//삭제 후
+	public Board deleteBoardResult(Board board) {
+		conn = DBCon.getConnection();
+		sql = "delete from board where board_no = " 
+				+ board.getBoardNo();
+		String sql2 = "select * from board where board_no = " + board.getBoardNo();
+		Board delReturn = new Board();
+		try {
+			stmt = conn.createStatement();
+			int r = stmt.executeUpdate(sql);
+			System.out.println( r + "건 삭제되었습니다.");
+			rs = stmt.executeQuery(sql2);
+			
+			if(rs.next()) {
+				delReturn.setBoardNo(rs.getInt("board_no"));
+				delReturn.setContent(rs.getString("content"));
+				delReturn.setCreationDate(rs.getString("creation_date"));
+				delReturn.setTitle(rs.getString("title"));
+				delReturn.setWriter(rs.getString("writer"));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return delReturn;
 	}
 	
 	

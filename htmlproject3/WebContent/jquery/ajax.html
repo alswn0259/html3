@@ -15,6 +15,7 @@
 					console.log(result);
 					//테이블에 표로 데이터 보여주도록..
 					let tbl = $('<table border="1" />');
+					tbl.attr('id','tbl');
 					for(let i=0; i<result.length; i++) {
 					let trTag = $('<tr />');
 						for(field in result[i]) {
@@ -22,7 +23,9 @@
 							let tdTag = $('<td />').html(result[i][field]);
 							trTag.append(tdTag);
 						}
-						tbl.append(trTag);
+						tdTag = $('<button />').html('삭제').click(delData);
+						trTag.append(tdTag);
+						tbl.append(trTag);	
 					}
 					
 					$('#show').append(tbl);
@@ -32,7 +35,21 @@
 				}
 			});
 			
-			$('#frm').submit(function (event) {
+			function delData() {
+				//화면 삭제
+				$(this).parentsUntil('table').remove();
+				//데이터베이스 삭제
+				$.ajax({
+					url: 'del.jsp',
+					datatype: 'json',
+					success: function() {
+						
+					}
+				})
+				
+			}
+			
+			$('#frm').submit(function () {
 
 				event.preventDefault();
 				console.log($('#frm').serialize());
@@ -47,11 +64,21 @@
 					success: function (data) {
 						let result = JSON.parse(data); // JSON => Object
 						console.log(result);
-
+	
 						$('input[name="boardNo"]').val('');
 						$('input[name="title"]').val('');
 						$('textarea[name="content"]').val('');
 						$('input[name="writer"]').val('');
+						
+						let $tr = $('<tr />').append(
+								$('<td />').html(result.boardNo),
+								$('<td />').html(result.title),
+								$('<td />').html(result.content),
+								$('<td />').html(result.writer),
+								$('<td />').html(result.creationDate),
+								$('<td />').$('<button />').html('삭제')
+								);
+						$('#tbl').append($tr);
 					}
 				});
 			});
